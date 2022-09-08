@@ -22,6 +22,7 @@ class StoreRelationRequest extends FormRequest
                 'min:3',
                 'max:32',
                 'required',
+                'unique:relations,name,NULL,id,deleted_at,NULL',
             ],
             'importance' => [
                 'nullable',

@@ -22,6 +22,7 @@ class UpdateRelationRequest extends FormRequest
                 'min:3',
                 'max:32',
                 'required',
+                'unique:relations,name,'.request()->route('relation')->id.',id,deleted_at,NULL',
             ],
             'importance' => [
                 'nullable',

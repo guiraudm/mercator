@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreRelationRequest;
+use App\Http\Requests\UpdateRelationRequest;
 use App\Http\Resources\Admin\RelationResource;
 use App\Relation;
 use Gate;
@@ -38,7 +39,7 @@ class RelationController extends Controller
         return new RelationResource($relation);
     }
 
-    public function update(StoreRelationRequest $request, Relation $relation)
+    public function update(UpdateRelationRequest $request, Relation $relation)
     {
         abort_if(Gate::denies('relation_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
