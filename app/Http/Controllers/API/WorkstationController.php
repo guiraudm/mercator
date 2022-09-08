@@ -29,6 +29,7 @@ class WorkstationController extends Controller
         $workstation = Workstation::create($request->all());
         // syncs
         // $workstation->roles()->sync($request->input('roles', []));
+        $workstation->applications()->sync($request->input('applications', []));
 
         return response()->json($workstation, 201);
     }
@@ -47,6 +48,7 @@ class WorkstationController extends Controller
         $workstation->update($request->all());
         // syncs
         // $workstation->roles()->sync($request->input('roles', []));
+        $workstation->applications()->sync($request->input('applications', []));
 
         return response()->json();
     }
