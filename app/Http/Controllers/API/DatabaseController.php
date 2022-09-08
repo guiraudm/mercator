@@ -29,6 +29,7 @@ class DatabaseController extends Controller
         $database = Database::create($request->all());
         // syncs
         // $database->roles()->sync($request->input('roles', []));
+        $database->informations()->sync($request->input('informations', []));
 
         return response()->json($database, 201);
     }
@@ -47,6 +48,7 @@ class DatabaseController extends Controller
         $database->update($request->all());
         // syncs
         // $database->roles()->sync($request->input('roles', []));
+        $database->informations()->sync($request->input('informations', []));
 
         return response()->json();
     }
