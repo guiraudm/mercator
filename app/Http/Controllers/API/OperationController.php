@@ -29,6 +29,7 @@ class OperationController extends Controller
         $operation = Operation::create($request->all());
         // syncs
         // $operation->roles()->sync($request->input('roles', []));
+        $operation->actors()->sync($request->input('actors', []));
 
         return response()->json($operation, 201);
     }
@@ -47,6 +48,7 @@ class OperationController extends Controller
         $operation->update($request->all());
         // syncs
         // $operation->roles()->sync($request->input('roles', []));
+        $operation->actors()->sync($request->input('actors', []));
 
         return response()->json();
     }
