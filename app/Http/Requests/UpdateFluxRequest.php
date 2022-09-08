@@ -18,7 +18,12 @@ class UpdateFluxRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['min:3','max:64','required'],
+            'name' => [
+                'min:3',
+                'max:64',
+                'required',
+                'unique:fluxes,name,'.request()->route('flux')->id.',id,deleted_at,NULL',
+            ],
             /*
             'application_source_id' =>
                 ['required_without_all:service_source_id,module_source_id,database_source_id'],
